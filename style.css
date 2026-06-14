@@ -1,0 +1,493 @@
+@font-face {
+  font-family: 'HsBombaram21';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/HSBombaram21-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'JoseonShinmyeongjo';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.1/ChosunSm.woff') format('woff');
+  font-weight: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-image: url('./assets/background.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #fff;
+  font-family: 'HsBombaram21', serif;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+}
+
+.home {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.orpheus-title {
+  position: absolute;
+  right: max(18px, env(safe-area-inset-right));
+  bottom: max(48px, calc(env(safe-area-inset-bottom) + 42px));
+  max-width: calc(100vw - 32px);
+  color: #fff;
+  font-family: 'HsBombaram21', serif;
+  font-size: clamp(76px, 12vw, 132px);
+  font-weight: normal;
+  line-height: 0.85;
+  letter-spacing: -0.035em;
+  text-align: right;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.orpheus-title:hover,
+.orpheus-title:focus-visible {
+  opacity: 0.82;
+  transform: translateY(-2px);
+}
+
+.sub {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: max(36px, env(safe-area-inset-top)) max(36px, env(safe-area-inset-right)) max(36px, env(safe-area-inset-bottom)) max(36px, env(safe-area-inset-left));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.back-link {
+  position: fixed;
+  top: max(24px, calc(env(safe-area-inset-top) + 16px));
+  left: max(28px, calc(env(safe-area-inset-left) + 18px));
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 24px;
+  line-height: 1;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity 180ms ease;
+}
+
+.back-link:hover,
+.back-link:focus-visible {
+  opacity: 0.7;
+}
+
+.content-card {
+  width: min(720px, calc(100vw - 48px));
+  padding: 42px 40px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 28px;
+  background: rgba(8, 45, 30, 0.22);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  text-align: center;
+}
+
+.content-card h1 {
+  margin: 0 0 18px;
+  font-size: clamp(58px, 9vw, 112px);
+  font-weight: normal;
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+}
+
+.content-card p {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+    background-position: center center;
+  }
+
+  .orpheus-title {
+    right: max(16px, calc(env(safe-area-inset-right) + 14px));
+    bottom: max(40px, calc(env(safe-area-inset-bottom) + 38px));
+    font-size: clamp(58px, 20vw, 92px);
+    line-height: 0.88;
+  }
+
+  .sub {
+    padding: max(24px, calc(env(safe-area-inset-top) + 20px)) max(20px, calc(env(safe-area-inset-right) + 18px)) max(24px, calc(env(safe-area-inset-bottom) + 20px)) max(20px, calc(env(safe-area-inset-left) + 18px));
+  }
+
+  .back-link {
+    top: max(18px, calc(env(safe-area-inset-top) + 14px));
+    left: max(18px, calc(env(safe-area-inset-left) + 14px));
+    font-size: 20px;
+  }
+
+  .content-card {
+    width: min(100%, 560px);
+    padding: 34px 26px;
+    border-radius: 22px;
+  }
+
+  .content-card h1 {
+    font-size: clamp(54px, 18vw, 86px);
+  }
+
+  .content-card p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 380px) {
+  .orpheus-title {
+    font-size: clamp(52px, 18vw, 68px);
+    right: 14px;
+  }
+
+  .content-card {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-height: 460px) and (orientation: landscape) {
+  .orpheus-title {
+    bottom: 24px;
+    font-size: clamp(58px, 14vw, 88px);
+  }
+
+  .sub {
+    justify-content: flex-start;
+    padding-top: 76px;
+    padding-bottom: 24px;
+  }
+}
+
+
+/* Orpheus page refined layout */
+.orpheus-card {
+  width: min(860px, calc(100vw - 48px));
+  padding: 32px 34px 30px;
+}
+
+.orpheus-card h1 {
+  margin: 0 0 12px;
+  font-size: clamp(46px, 7.2vw, 82px);
+  line-height: 0.92;
+}
+
+.orpheus-content {
+  width: 100%;
+}
+
+.torn-paper-image {
+  display: block;
+  width: min(100%, 430px);
+  height: auto;
+  margin: 10px auto 0;
+  filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.18));
+}
+
+.orpheus-body-text {
+  width: min(100%, 620px);
+  margin: 18px auto 0;
+  color: #e4f0d5;
+  font-family: 'JoseonShinmyeongjo', serif;
+  font-size: 14pt;
+  line-height: 1.82;
+  text-align: left;
+  white-space: pre-line;
+  word-break: keep-all;
+}
+
+@media (max-width: 768px) {
+  .orpheus-card {
+    width: min(100%, 640px);
+    padding: 26px 20px 24px;
+  }
+
+  .orpheus-card h1 {
+    margin-bottom: 10px;
+    font-size: clamp(42px, 13vw, 68px);
+  }
+
+  .torn-paper-image {
+    width: min(100%, 330px);
+    margin-top: 8px;
+  }
+
+  .orpheus-body-text {
+    width: min(100%, 100%);
+    margin-top: 14px;
+    font-size: 14pt;
+    line-height: 1.75;
+  }
+}
+
+@media (max-width: 420px) {
+  .torn-paper-image {
+    width: min(100%, 290px);
+  }
+
+  .orpheus-body-text {
+    font-size: 13.5pt;
+    line-height: 1.72;
+  }
+}
+
+
+/* Orpheus paragraph styling */
+.orpheus-body-text {
+  white-space: normal;
+}
+
+.orpheus-body-text p {
+  margin: 0 0 1.35em;
+}
+
+.orpheus-body-text p:last-child {
+  margin-bottom: 0;
+}
+
+.love-highlight {
+  color: #114f2e;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .orpheus-body-text p {
+    margin-bottom: 1.25em;
+  }
+}
+
+
+/* Orpheus password gate */
+.gate {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: max(36px, env(safe-area-inset-top)) max(28px, env(safe-area-inset-right)) max(36px, env(safe-area-inset-bottom)) max(28px, env(safe-area-inset-left));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gate-content {
+  width: min(100%, 980px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+
+.camcorder-frame {
+  position: relative;
+  width: min(74vw, 920px);
+  max-width: calc(100vw - 48px);
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  isolation: isolate;
+  box-shadow: none;
+}
+
+.camcorder-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: contrast(1.06) saturate(0.82) brightness(0.92);
+}
+
+.camcorder-frame::before,
+.camcorder-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.camcorder-frame::before {
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.055) 0,
+      rgba(255, 255, 255, 0.055) 1px,
+      rgba(0, 0, 0, 0.08) 2px,
+      rgba(0, 0, 0, 0.08) 4px
+    );
+  mix-blend-mode: soft-light;
+  opacity: 0.68;
+}
+
+.camcorder-frame::after {
+  inset: -18%;
+  background-image:
+    radial-gradient(circle at 18% 22%, rgba(255, 255, 255, 0.26) 0 0.7px, transparent 1.3px),
+    radial-gradient(circle at 72% 61%, rgba(255, 255, 255, 0.18) 0 0.8px, transparent 1.6px),
+    radial-gradient(circle at 44% 84%, rgba(0, 0, 0, 0.22) 0 0.9px, transparent 1.7px),
+    radial-gradient(circle at 90% 15%, rgba(0, 0, 0, 0.18) 0 0.8px, transparent 1.5px);
+  background-size: 12px 12px, 17px 17px, 15px 15px, 21px 21px;
+  mix-blend-mode: overlay;
+  opacity: 0.44;
+  animation: camcorderNoise 150ms steps(2, end) infinite;
+}
+
+@keyframes camcorderNoise {
+  0% { transform: translate3d(0, 0, 0); }
+  20% { transform: translate3d(-2%, 1%, 0); }
+  40% { transform: translate3d(1%, -2%, 0); }
+  60% { transform: translate3d(3%, 2%, 0); }
+  80% { transform: translate3d(-1%, -1%, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+.password-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: min(100%, 420px);
+  font-family: 'JoseonShinmyeongjo', serif;
+}
+
+.password-label {
+  width: 100%;
+  color: #e4f0d5;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.password-input {
+  width: 180px;
+  height: 42px;
+  border: 1px solid rgba(228, 240, 213, 0.55);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.18);
+  color: #e4f0d5;
+  font-family: 'JoseonShinmyeongjo', serif;
+  font-size: 18px;
+  letter-spacing: 0.3em;
+  text-align: center;
+  outline: none;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.password-input:focus {
+  border-color: #e4f0d5;
+  box-shadow: 0 0 0 3px rgba(228, 240, 213, 0.14);
+}
+
+.password-button {
+  height: 42px;
+  padding: 0 20px;
+  border: 1px solid rgba(228, 240, 213, 0.55);
+  border-radius: 999px;
+  background: rgba(228, 240, 213, 0.12);
+  color: #e4f0d5;
+  font-family: 'JoseonShinmyeongjo', serif;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.password-button:hover,
+.password-button:focus-visible {
+  background: rgba(228, 240, 213, 0.22);
+  transform: translateY(-1px);
+}
+
+.password-message {
+  width: 100%;
+  min-height: 1.4em;
+  margin: 0;
+  color: rgba(228, 240, 213, 0.86);
+  font-family: 'JoseonShinmyeongjo', serif;
+  font-size: 13px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .gate {
+    padding: max(24px, calc(env(safe-area-inset-top) + 20px)) max(18px, calc(env(safe-area-inset-right) + 16px)) max(24px, calc(env(safe-area-inset-bottom) + 20px)) max(18px, calc(env(safe-area-inset-left) + 16px));
+  }
+
+  .gate-content {
+    gap: 18px;
+  }
+
+  .camcorder-frame {
+    width: min(100%, 640px);
+    max-width: calc(100vw - 36px);
+  }
+
+  .password-form {
+    gap: 8px;
+  }
+
+  .password-input {
+    width: 156px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .password-button {
+    height: 40px;
+    padding: 0 18px;
+  }
+}
+
+@media (max-width: 420px) {
+  .password-input,
+  .password-button {
+    width: min(100%, 240px);
+  }
+}
+
+
+/* Remove black border around gate image */
+.camcorder-frame {
+  background: transparent;
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+}
+
+.camcorder-frame img {
+  border: 0;
+  outline: 0;
+}

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Orpheus Gate</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body class="gate-page">
+  <main class="gate" aria-label="Orpheus password page">
+    <a class="back-link" href="./index.html" aria-label="메인 화면으로 돌아가기">← main</a>
+
+    <section class="gate-content" aria-label="Orpheus 입장 영역">
+      <div class="camcorder-frame" aria-label="Orpheus camcorder image">
+        <img src="./assets/orpheus-gate.png" alt="바닷가에 서 있는 두 사람의 캠코더풍 이미지" />
+      </div>
+
+      <form class="password-form" id="passwordForm" autocomplete="off">
+        <label class="password-label" for="passwordInput">password</label>
+        <input
+          id="passwordInput"
+          class="password-input"
+          type="password"
+          inputmode="numeric"
+          pattern="[0-9]*"
+          maxlength="4"
+          aria-describedby="passwordMessage"
+        />
+        <button class="password-button" type="submit">enter</button>
+        <p class="password-message" id="passwordMessage" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    const passwordForm = document.getElementById('passwordForm');
+    const passwordInput = document.getElementById('passwordInput');
+    const passwordMessage = document.getElementById('passwordMessage');
+
+    passwordForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      if (passwordInput.value === '0427') {
+        window.location.href = './orpheus.html';
+        return;
+      }
+
+      passwordMessage.textContent = '비밀번호가 맞지 않습니다.';
+      passwordInput.value = '';
+      passwordInput.focus();
+    });
+  </script>
+</body>
+</html>
