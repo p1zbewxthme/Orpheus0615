@@ -1,21 +1,22 @@
 @font-face {
   font-family: 'HsBombaram21';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/HSBombaram21-Regular.woff2') format('woff2');
-  font-weight: normal;
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/HSBombaram21-Regular.woff2') format('woff2'),
+       url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/HSBombaram21-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
   font-display: swap;
 }
-
 
 @font-face {
   font-family: 'JoseonShinmyeongjo';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.1/ChosunSm.woff') format('woff');
-  font-weight: normal;
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.1/ChosunSm.woff') format('woff'),
+       url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.1/ChosunSm.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
   font-display: swap;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html,
 body {
@@ -33,13 +34,13 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: #fff;
-  font-family: 'HsBombaram21', serif;
+  font-family: 'JoseonShinmyeongjo', 'Noto Serif KR', 'Apple SD Gothic Neo', serif;
   overflow-x: hidden;
 }
 
-a {
-  color: inherit;
-}
+a { color: inherit; }
+
+.is-hidden { display: none !important; }
 
 .home {
   position: relative;
@@ -54,9 +55,9 @@ a {
   bottom: max(48px, calc(env(safe-area-inset-bottom) + 42px));
   max-width: calc(100vw - 32px);
   color: #fff;
-  font-family: 'HsBombaram21', serif;
+  font-family: 'HsBombaram21', Georgia, 'Times New Roman', serif !important;
   font-size: clamp(76px, 12vw, 132px);
-  font-weight: normal;
+  font-weight: 400;
   line-height: 0.85;
   letter-spacing: -0.035em;
   text-align: right;
@@ -74,22 +75,13 @@ a {
   transform: translateY(-2px);
 }
 
-.sub {
-  width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
-  padding: max(36px, env(safe-area-inset-top)) max(36px, env(safe-area-inset-right)) max(36px, env(safe-area-inset-bottom)) max(36px, env(safe-area-inset-left));
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .back-link {
   position: fixed;
   top: max(24px, calc(env(safe-area-inset-top) + 16px));
   left: max(28px, calc(env(safe-area-inset-left) + 18px));
+  z-index: 20;
   color: rgba(255, 255, 255, 0.9);
+  font-family: 'HsBombaram21', Georgia, 'Times New Roman', serif !important;
   font-size: 24px;
   line-height: 1;
   text-decoration: none;
@@ -98,199 +90,10 @@ a {
 }
 
 .back-link:hover,
-.back-link:focus-visible {
-  opacity: 0.7;
-}
+.back-link:focus-visible { opacity: 0.7; }
 
-.content-card {
-  width: min(720px, calc(100vw - 48px));
-  padding: 42px 40px;
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  border-radius: 28px;
-  background: rgba(8, 45, 30, 0.22);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  text-align: center;
-}
-
-.content-card h1 {
-  margin: 0 0 18px;
-  font-size: clamp(58px, 9vw, 112px);
-  font-weight: normal;
-  line-height: 0.9;
-  letter-spacing: -0.035em;
-}
-
-.content-card p {
-  margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: clamp(16px, 2vw, 20px);
-  line-height: 1.8;
-}
-
-@media (max-width: 768px) {
-  body {
-    background-attachment: scroll;
-    background-position: center center;
-  }
-
-  .orpheus-title {
-    right: max(16px, calc(env(safe-area-inset-right) + 14px));
-    bottom: max(40px, calc(env(safe-area-inset-bottom) + 38px));
-    font-size: clamp(58px, 20vw, 92px);
-    line-height: 0.88;
-  }
-
-  .sub {
-    padding: max(24px, calc(env(safe-area-inset-top) + 20px)) max(20px, calc(env(safe-area-inset-right) + 18px)) max(24px, calc(env(safe-area-inset-bottom) + 20px)) max(20px, calc(env(safe-area-inset-left) + 18px));
-  }
-
-  .back-link {
-    top: max(18px, calc(env(safe-area-inset-top) + 14px));
-    left: max(18px, calc(env(safe-area-inset-left) + 14px));
-    font-size: 20px;
-  }
-
-  .content-card {
-    width: min(100%, 560px);
-    padding: 34px 26px;
-    border-radius: 22px;
-  }
-
-  .content-card h1 {
-    font-size: clamp(54px, 18vw, 86px);
-  }
-
-  .content-card p {
-    font-size: 16px;
-    line-height: 1.7;
-  }
-}
-
-@media (max-width: 380px) {
-  .orpheus-title {
-    font-size: clamp(52px, 18vw, 68px);
-    right: 14px;
-  }
-
-  .content-card {
-    padding: 30px 20px;
-  }
-}
-
-@media (max-height: 460px) and (orientation: landscape) {
-  .orpheus-title {
-    bottom: 24px;
-    font-size: clamp(58px, 14vw, 88px);
-  }
-
-  .sub {
-    justify-content: flex-start;
-    padding-top: 76px;
-    padding-bottom: 24px;
-  }
-}
-
-
-/* Orpheus page refined layout */
-.orpheus-card {
-  width: min(860px, calc(100vw - 48px));
-  padding: 32px 34px 30px;
-}
-
-.orpheus-card h1 {
-  margin: 0 0 12px;
-  font-size: clamp(46px, 7.2vw, 82px);
-  line-height: 0.92;
-}
-
-.orpheus-content {
-  width: 100%;
-}
-
-.torn-paper-image {
-  display: block;
-  width: min(100%, 430px);
-  height: auto;
-  margin: 10px auto 0;
-  filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.18));
-}
-
-.orpheus-body-text {
-  width: min(100%, 620px);
-  margin: 18px auto 0;
-  color: #e4f0d5;
-  font-family: 'JoseonShinmyeongjo', serif;
-  font-size: 14pt;
-  line-height: 1.82;
-  text-align: left;
-  white-space: pre-line;
-  word-break: keep-all;
-}
-
-@media (max-width: 768px) {
-  .orpheus-card {
-    width: min(100%, 640px);
-    padding: 26px 20px 24px;
-  }
-
-  .orpheus-card h1 {
-    margin-bottom: 10px;
-    font-size: clamp(42px, 13vw, 68px);
-  }
-
-  .torn-paper-image {
-    width: min(100%, 330px);
-    margin-top: 8px;
-  }
-
-  .orpheus-body-text {
-    width: min(100%, 100%);
-    margin-top: 14px;
-    font-size: 14pt;
-    line-height: 1.75;
-  }
-}
-
-@media (max-width: 420px) {
-  .torn-paper-image {
-    width: min(100%, 290px);
-  }
-
-  .orpheus-body-text {
-    font-size: 13.5pt;
-    line-height: 1.72;
-  }
-}
-
-
-/* Orpheus paragraph styling */
-.orpheus-body-text {
-  white-space: normal;
-}
-
-.orpheus-body-text p {
-  margin: 0 0 1.35em;
-}
-
-.orpheus-body-text p:last-child {
-  margin-bottom: 0;
-}
-
-.love-highlight {
-  color: #114f2e;
-  font-weight: 700;
-}
-
-@media (max-width: 768px) {
-  .orpheus-body-text p {
-    margin-bottom: 1.25em;
-  }
-}
-
-
-/* Orpheus password gate */
-.gate {
+.gate-view,
+.orpheus-view {
   width: 100%;
   min-height: 100vh;
   min-height: 100dvh;
@@ -312,18 +115,21 @@ a {
   position: relative;
   width: min(74vw, 920px);
   max-width: calc(100vw - 48px);
+  margin: 0;
   overflow: hidden;
   background: transparent;
   border: 0;
   outline: 0;
-  isolation: isolate;
   box-shadow: none;
+  isolation: isolate;
 }
 
 .camcorder-frame img {
   display: block;
   width: 100%;
   height: auto;
+  border: 0;
+  outline: 0;
   filter: contrast(1.06) saturate(0.82) brightness(0.92);
 }
 
@@ -337,14 +143,13 @@ a {
 }
 
 .camcorder-frame::before {
-  background:
-    repeating-linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.055) 0,
-      rgba(255, 255, 255, 0.055) 1px,
-      rgba(0, 0, 0, 0.08) 2px,
-      rgba(0, 0, 0, 0.08) 4px
-    );
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.055) 0,
+    rgba(255, 255, 255, 0.055) 1px,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
   mix-blend-mode: soft-light;
   opacity: 0.68;
 }
@@ -378,7 +183,7 @@ a {
   justify-content: center;
   gap: 10px;
   width: min(100%, 420px);
-  font-family: 'JoseonShinmyeongjo', serif;
+  font-family: 'JoseonShinmyeongjo', 'Noto Serif KR', 'Apple SD Gothic Neo', serif !important;
 }
 
 .password-label {
@@ -397,7 +202,7 @@ a {
   border-radius: 999px;
   background: rgba(0, 0, 0, 0.18);
   color: #e4f0d5;
-  font-family: 'JoseonShinmyeongjo', serif;
+  font-family: 'JoseonShinmyeongjo', 'Noto Serif KR', 'Apple SD Gothic Neo', serif !important;
   font-size: 18px;
   letter-spacing: 0.3em;
   text-align: center;
@@ -418,7 +223,7 @@ a {
   border-radius: 999px;
   background: rgba(228, 240, 213, 0.12);
   color: #e4f0d5;
-  font-family: 'JoseonShinmyeongjo', serif;
+  font-family: 'JoseonShinmyeongjo', 'Noto Serif KR', 'Apple SD Gothic Neo', serif !important;
   font-size: 14px;
   letter-spacing: 0.12em;
   cursor: pointer;
@@ -436,93 +241,65 @@ a {
   min-height: 1.4em;
   margin: 0;
   color: rgba(228, 240, 213, 0.86);
-  font-family: 'JoseonShinmyeongjo', serif;
+  font-family: 'JoseonShinmyeongjo', 'Noto Serif KR', 'Apple SD Gothic Neo', serif !important;
   font-size: 13px;
   text-align: center;
 }
 
-@media (max-width: 768px) {
-  .gate {
-    padding: max(24px, calc(env(safe-area-inset-top) + 20px)) max(18px, calc(env(safe-area-inset-right) + 16px)) max(24px, calc(env(safe-area-inset-bottom) + 20px)) max(18px, calc(env(safe-area-inset-left) + 16px));
-  }
-
-  .gate-content {
-    gap: 18px;
-  }
-
-  .camcorder-frame {
-    width: min(100%, 640px);
-    max-width: calc(100vw - 36px);
-  }
-
-  .password-form {
-    gap: 8px;
-  }
-
-  .password-input {
-    width: 156px;
-    height: 40px;
-    font-size: 16px;
-  }
-
-  .password-button {
-    height: 40px;
-    padding: 0 18px;
-  }
+.content-card {
+  width: min(860px, calc(100vw - 48px));
+  padding: 32px 34px 30px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 28px;
+  background: rgba(8, 45, 30, 0.22);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  text-align: center;
 }
 
-@media (max-width: 420px) {
-  .password-input,
-  .password-button {
-    width: min(100%, 240px);
-  }
-}
-
-
-/* Remove black border around gate image */
-.camcorder-frame {
-  background: transparent;
-  border: 0;
-  outline: 0;
-  box-shadow: none;
-}
-
-.camcorder-frame img {
-  border: 0;
-  outline: 0;
-}
-
-
-/* Font fix for Orpheus page */
 .orpheus-card h1,
-.sub-page .content-card h1 {
+.sub-page .content-card h1,
+.gate-page .content-card h1 {
+  margin: 0 0 12px;
+  color: #fff;
   font-family: 'HsBombaram21', Georgia, 'Times New Roman', serif !important;
-  font-weight: normal !important;
+  font-size: clamp(46px, 7.2vw, 82px);
+  font-weight: 400 !important;
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+}
+
+.orpheus-content { width: 100%; }
+
+.torn-paper-image {
+  display: block;
+  width: min(100%, 430px);
+  height: auto;
+  margin: 10px auto 0;
+  filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.18));
 }
 
 .orpheus-body-text,
-.orpheus-body-text *,
-.sub-page .orpheus-body-text,
-.sub-page .orpheus-body-text * {
+.orpheus-body-text * {
   font-family: 'JoseonShinmyeongjo', 'Noto Serif KR', 'Apple SD Gothic Neo', serif !important;
 }
+
+.orpheus-body-text {
+  width: min(100%, 620px);
+  margin: 18px auto 0;
+  color: #e4f0d5;
+  font-size: 14pt;
+  line-height: 1.82;
+  text-align: left;
+  word-break: keep-all;
+}
+
+.orpheus-body-text p { margin: 0 0 1.35em; }
+.orpheus-body-text p:last-child { margin-bottom: 0; }
 
 .love-highlight {
   color: #114f2e !important;
   font-weight: 700 !important;
-}
-
-
-/* Orpheus BGM control */
-.youtube-audio {
-  position: fixed;
-  width: 1px;
-  height: 1px;
-  left: -9999px;
-  top: -9999px;
-  overflow: hidden;
-  opacity: 0;
-  pointer-events: none;
 }
 
 .music-toggle {
@@ -536,7 +313,7 @@ a {
   border: 0;
   background: transparent;
   color: #e4f0d5;
-  font-family: 'JoseonShinmyeongjo', 'Noto Serif KR', 'Apple SD Gothic Neo', serif;
+  font-family: 'JoseonShinmyeongjo', 'Noto Serif KR', 'Apple SD Gothic Neo', serif !important;
   font-size: 20pt;
   line-height: 1;
   cursor: pointer;
@@ -551,13 +328,95 @@ a {
   outline: none;
 }
 
-.music-toggle:focus-visible {
-  text-shadow: 0 0 8px rgba(228, 240, 213, 0.45);
+.music-toggle:focus-visible { text-shadow: 0 0 8px rgba(228, 240, 213, 0.45); }
+
+.youtube-audio {
+  position: fixed;
+  width: 1px;
+  height: 1px;
+  left: -9999px;
+  top: -9999px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
 @media (max-width: 768px) {
-  .music-toggle {
-    margin-top: 24px;
-    font-size: 20pt;
+  body {
+    background-attachment: scroll;
+    background-position: center center;
   }
+
+  .orpheus-title {
+    right: max(16px, calc(env(safe-area-inset-right) + 14px));
+    bottom: max(40px, calc(env(safe-area-inset-bottom) + 38px));
+    font-size: clamp(58px, 20vw, 92px);
+    line-height: 0.88;
+  }
+
+  .back-link {
+    top: max(18px, calc(env(safe-area-inset-top) + 14px));
+    left: max(18px, calc(env(safe-area-inset-left) + 14px));
+    font-size: 20px;
+  }
+
+  .gate-view,
+  .orpheus-view {
+    padding: max(24px, calc(env(safe-area-inset-top) + 20px)) max(18px, calc(env(safe-area-inset-right) + 16px)) max(24px, calc(env(safe-area-inset-bottom) + 20px)) max(18px, calc(env(safe-area-inset-left) + 16px));
+  }
+
+  .gate-content { gap: 18px; }
+
+  .camcorder-frame {
+    width: min(100%, 640px);
+    max-width: calc(100vw - 36px);
+  }
+
+  .password-form { gap: 8px; }
+
+  .password-input {
+    width: 156px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .password-button {
+    height: 40px;
+    padding: 0 18px;
+  }
+
+  .content-card {
+    width: min(100%, 640px);
+    padding: 26px 20px 24px;
+    border-radius: 22px;
+  }
+
+  .orpheus-card h1,
+  .sub-page .content-card h1,
+  .gate-page .content-card h1 {
+    margin-bottom: 10px;
+    font-size: clamp(42px, 13vw, 68px);
+  }
+
+  .torn-paper-image {
+    width: min(100%, 330px);
+    margin-top: 8px;
+  }
+
+  .orpheus-body-text {
+    width: min(100%, 100%);
+    margin-top: 14px;
+    font-size: 14pt;
+    line-height: 1.75;
+  }
+
+  .orpheus-body-text p { margin-bottom: 1.25em; }
+  .music-toggle { margin-top: 24px; font-size: 20pt; }
+}
+
+@media (max-width: 420px) {
+  .password-input,
+  .password-button { width: min(100%, 240px); }
+  .torn-paper-image { width: min(100%, 290px); }
+  .orpheus-body-text { font-size: 13.5pt; line-height: 1.72; }
 }
