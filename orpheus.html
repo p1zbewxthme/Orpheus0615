@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Orpheus</title>
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./style.css?v=20260614-bgm-final" />
 </head>
 <body class="sub-page">
   <main class="sub" aria-label="Orpheus detail page">
@@ -25,8 +25,89 @@
           <p>온몸으로 너를 이해하려 할 테니<br>사랑에 실망하는 일은 현실이 되지 않으리라는 것.</p>
           <p>이런 오만한 확신이 나에게는 있다.<br>앞으로도 네 도처에 머물게 해 줘.</p>
         </div>
+
+        <button class="music-toggle" id="musicToggle" type="button" aria-label="배경음악 일시정지">⏸</button>
       </div>
     </section>
   </main>
+
+  <div class="youtube-audio" id="youtubePlayer" aria-hidden="true"></div>
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script>
+    const ORPHEUS_VIDEO_ID = 'NY62PbboDAY';
+    const musicToggle = document.getElementById('musicToggle');
+    let bgmPlayer;
+    let isBgmPlaying = true;
+
+    function updateMusicButton() {
+      if (!musicToggle) return;
+      musicToggle.textContent = isBgmPlaying ? '⏸' : '▶';
+      musicToggle.setAttribute(
+        'aria-label',
+        isBgmPlaying ? '배경음악 일시정지' : '배경음악 재생'
+      );
+    }
+
+    function onYouTubeIframeAPIReady() {
+      bgmPlayer = new YT.Player('youtubePlayer', {
+        width: '1',
+        height: '1',
+        videoId: ORPHEUS_VIDEO_ID,
+        playerVars: {
+          autoplay: 1,
+          loop: 1,
+          playlist: ORPHEUS_VIDEO_ID,
+          controls: 0,
+          disablekb: 1,
+          fs: 0,
+          modestbranding: 1,
+          playsinline: 1,
+          rel: 0
+        },
+        events: {
+          onReady: (event) => {
+            event.target.setLoop(true);
+            event.target.setVolume(70);
+            event.target.playVideo();
+            isBgmPlaying = true;
+            updateMusicButton();
+          },
+          onStateChange: (event) => {
+            if (event.data === YT.PlayerState.ENDED) {
+              bgmPlayer.playVideo();
+            }
+            if (event.data === YT.PlayerState.PLAYING) {
+              isBgmPlaying = true;
+              updateMusicButton();
+            }
+            if (event.data === YT.PlayerState.PAUSED) {
+              isBgmPlaying = false;
+              updateMusicButton();
+            }
+          }
+        }
+      });
+    }
+
+    if (musicToggle) {
+      musicToggle.addEventListener('click', () => {
+        if (!bgmPlayer || typeof bgmPlayer.getPlayerState !== 'function') return;
+        const state = bgmPlayer.getPlayerState();
+
+        if (state === YT.PlayerState.PLAYING) {
+          bgmPlayer.pauseVideo();
+          isBgmPlaying = false;
+        } else {
+          bgmPlayer.playVideo();
+          isBgmPlaying = true;
+        }
+
+        updateMusicButton();
+      });
+    }
+
+    updateMusicButton();
+  </script>
 </body>
 </html>
