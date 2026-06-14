@@ -1,25 +1,32 @@
-# Orpheus GitHub Pages 최종 수정본
+# Orpheus0615 fixed build
 
-이 버전은 CSS와 이미지를 HTML 내부에 직접 포함한 버전입니다. 따라서 `style.css`나 `assets` 경로 문제 때문에 폰트·이미지·음악 아이콘이 깨지는 상황을 줄였습니다.
+## 업로드 방법
 
-업로드할 파일:
+기존 저장소의 파일을 모두 지우고, 이 압축 파일 안의 파일과 폴더를 저장소 최상위에 그대로 업로드하세요.
 
-- index.html
-- gate.html
-- orpheus.html
-- README.md
+필수 구조:
 
-GitHub 저장소 최상위에 위 파일들을 그대로 업로드하면 됩니다.
+```text
+index.html
+gate.html
+orpheus.html
+style.css
+script.js
+README.md
+assets/
+  background.png
+  orpheus-gate.png
+  torn-paper.png
+```
 
-작동 흐름:
+## 수정 사항
 
-1. `index.html`에서 Orpheus 클릭
-2. `gate.html`에서 비밀번호 `0427` 입력
-3. Orpheus 본문 화면 표시
-4. 비밀번호 입력이라는 사용자 클릭 직후 음악 재생을 시도
-5. 브라우저가 자동재생을 막으면 본문 하단의 재생 아이콘을 눌러 재생
+- 폰트와 스타일을 다시 `style.css`로 분리했습니다.
+- HTML 안에 거대한 base64 이미지를 넣는 방식을 제거했습니다.
+- `style.css?v=20260615-02`, `script.js?v=20260615-02`를 사용해 브라우저 캐시를 우회합니다.
+- 음악 아이콘은 JavaScript 실행 전에도 보이도록 `▶` 텍스트를 HTML에 직접 넣었습니다.
+- 비밀번호 `0427` 입력 후 같은 문서 안에서 Orpheus 화면을 보여 주고, 그 사용자 동작을 이용해 YouTube BGM 재생을 시도합니다.
 
-주의:
+## 주의
 
-- Chrome, Safari, 모바일 브라우저는 소리 있는 자동재생을 차단할 수 있습니다. 이 경우 코드 문제가 아니라 브라우저 정책입니다.
-- 이 사이트의 비밀번호는 정적 페이지용 연출 장치이며 실제 보안 기능은 아닙니다.
+Chrome, Safari, 모바일 브라우저에서는 소리 있는 자동재생이 차단될 수 있습니다. 이 경우 본문 하단의 `▶` 아이콘을 눌러 재생하세요.
